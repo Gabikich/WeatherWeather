@@ -7,6 +7,7 @@
   <title>City Focus</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="/assets/styles.css" />
   <script src="/assets/data/weather_data.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
@@ -87,12 +88,12 @@
 
     </div>
   </main>
-
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p><strong>WeatherWeather - CityFocus</strong></p>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p> <strong>WeatherWeather- Dashboard</strong> by Gabriela K. </p>
+      </div>
+    </footer>
 
   <script>
     const weatherDescriptions = {
@@ -106,27 +107,23 @@
       71: "Snow",
     };
 
-    function getCityFromURL() {
-      const params = new URLSearchParams(window.location.search);
-      return params.get("city")?.toLowerCase();
+    function getCityFromURL() { // gets the name of the city on the URL parameter
+      const params = new URLSearchParams(window.location.search); //everything after the ?
+      return params.get("city")?.toLowerCase(); //change everthing to lowercase   
     }
 
-    function updateCurrentTime() {
-      const now = dayjs();
-      const formattedTime = now.format("HH:mm");
-      document.getElementById("currentTime").textContent = `Current Time: ${formattedTime}`;
+    function updateCurrentTime() { 
+      const now = dayjs(); // creates the actual time with dayjs
+      const actualTime = now.format("HH:mm"); // formats the time as the same as the file given
+      document.getElementById("currentTime").textContent = `Current Time: ${actualTime}`; //updates the element with actual time
+
       return now.hour(); // returns the current hours to use in the forecast
     }
 
     document.addEventListener("DOMContentLoaded", () => {
       const city = getCityFromURL();
-      if (!city) {
-        alert("No city provided in URL.");
-        return;
-      }
-
-      document.getElementById("cityTitle").textContent = `City Focus: ${city.charAt(0).toUpperCase() + city.slice(1)}`;
-
+  
+      document.getElementById("cityTitle").textContent = `City Focus: ${city.charAt(0).toUpperCase() + city.slice(1)}`; //changing the first letter of the City to upper case 
       const daily = weatherData[city + "_daily"].daily;
       const hourly = weatherData[city + "_hourly"].hourly;
 
@@ -140,8 +137,8 @@
 
       // Current Hours
       const hourIndex = updateCurrentTime();
-      const tempNow = hourly.temperature_2m[hourIndex];
-      const windNow = hourly.wind_speed_10m[hourIndex];
+      const tempNow = hourly.temperature_2m[hourIndex]; //takes the temp at this time 
+      const windNow = hourly.wind_speed_10m[hourIndex]; //gets the wind at this time
       document.getElementById("hourTemp").textContent = `Temperature Now: ${tempNow}°C`;
       document.getElementById("hourWind").textContent = `Wind Now: ${windNow} km/h`;
 
