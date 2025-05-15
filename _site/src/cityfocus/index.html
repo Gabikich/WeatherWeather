@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Focus</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get all "navbar-burger" elements
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      // Check if there are any navbar burgers
+      if ($navbarBurgers.length > 0) {
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach(el => {
+          el.addEventListener('click', () => {
+
+            // Get the target from the "data-target" attribute
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+
+            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+
+          });
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <img src="logo.png" alt="Logo" width="112" height="28">
+        </a>
+
+        <!-- navbar-burger to the navbar-menu -->
+        <span class="navbar-burger has-background-black" data-target="navbarMenu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="index.html">Dashboard</a>
+          <a class="navbar-item" href="preferences.html">Preferences</a>
+          <a class="navbar-item" href="cityfocus.html">City-Focus</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1 class="title">City Focus: BERLIM</h1>
+    
+      <div class="content">
+        <h2>Today's Weather</h2>
+        <p>Weather: Overcast</p>
+        <p>Max Temperature: 18°C</p>
+        <p>Max Wind Strength: 15 km/h</p>
+
+        <h2>Current Hour Forecast</h2>
+        <p>Temperature: 17°C</p>
+        <p>Wind Strength: 10 km/h</p>
+
+        <h2>7-Day Summary</h2>
+        <ul>
+          <li>Day 1: Sunny</li>
+          <li>Day 2: Rain</li>
+          <!-- More days -->
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p><strong>WeatherWeather - CityFocus</strong></p>
+    </div>
+  </footer>
+</body>
+</html>

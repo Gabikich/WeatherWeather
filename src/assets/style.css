@@ -1,0 +1,18 @@
+body {
+  font-family: "Poppins", sans-serif 
+}
+
+.card {
+    cursor: pointer;
+  }
+
+h1{
+  color: red;
+}
+
+  .card.favorite {
+    /* exemplo de destaque: sombra e borda mais forte */
+    border: 2px solid #ffdd57;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  

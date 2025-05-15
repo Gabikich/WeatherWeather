@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Weather</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="styles.css"> 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get all "navbar-burger" elements
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      // Check if there are any navbar burgers
+      if ($navbarBurgers.length > 0) {
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach(el => {
+          el.addEventListener('click', () => {
+
+            // Get the target from the "data-target" attribute
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+
+            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+
+          });
+        });
+      }
+    });
+  </script>
+
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <img src="logo.png" alt="Logo" width="112" height="28">
+        </a>
+
+        <!-- Correctly link the navbar-burger to the navbar-menu -->
+        <span class="navbar-burger has-background-black" data-target="navbarMenu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </span>
+      </div>
+
+      <!-- Add the ID 'navbarMenu' to match the data-target -->
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="index.html">Dashboard</a>
+          <a class="navbar-item" href="preferences.html">Preferences</a>
+          <a class="navbar-item" href="cityfocus.html">City-Focus</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->  
+  <main class="section">
+    <div class="container">
+      <h1 class="title">FORECAST</h1>
+      <div class="columns is-multiline">
+
+        <!-- Dublin -->
+        <div class="column is-one-third" onclick="window.location.href='dublin.html';">
+          <div class="card">
+            <div class="card-content">
+              <p class="title">Dublin</p>
+              <p class="subtitle">Temperature: 15°C</p>
+              <p>Wind Speed: 20 km/h</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- London -->
+        <div class="column is-one-third" onclick="window.location.href='london.html';">
+          <div class="card">
+            <div class="card-content">
+              <p class="title">London</p>
+              <p class="subtitle">Temperature: 18°C</p>
+              <p>Wind Speed: 25 km/h</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amsterdam -->
+        <div class="column is-one-third" onclick="window.location.href='amsterdam.html';">
+          <div class="card">
+            <div class="card-content">
+              <p class="title">Amsterdam</p>
+              <p class="subtitle">Temperature: 17°C</p>
+              <p>Wind Speed: 22 km/h</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paris -->
+        <div class="column is-one-third" onclick="window.location.href='paris.html';">
+          <div class="card">
+            <div class="card-content">
+              <p class="title">Paris</p>
+              <p class="subtitle">Temperature: 20°C</p>
+              <p>Wind Speed: 18 km/h</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barcelona -->
+        <div class="column is-one-third" onclick="window.location.href='barcelona.html';">
+          <div class="card">
+            <div class="card-content">
+              <p class="title">Barcelona</p>
+              <p class="subtitle">Temperature: 25°C</p>
+              <p>Wind Speed: 15 km/h</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rome -->
+        <div class="column is-one-third" onclick="window.location.href='rome.html';">
+          <div class="card">
+            <div class="card-content">
+              <p class="title">Rome</p>
+              <p class="subtitle">Temperature: 23°C</p>
+              <p>Wind Speed: 19 km/h</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>WeatherWather - Dashboard</strong> 
+      </p>
+    </div>
+  </footer>
+</body> 
+
+</html>
