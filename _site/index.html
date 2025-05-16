@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Weather</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="data/weather_data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <script src="js/bulma.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar is-primary has-background-info	 " role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <img class=logo src="images/logo.png" alt="Logo" style="max-height: 5rem;">
+        </a>
+        <!-- navbar-burger to the navbar-menu -->
+        <span class="navbar-burger has-background-white" data-target="navbarMenu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <!-- center the Dashboard -->
+        <div class="navbar-start is-flex is-justify-content-center" style="flex: 1;">
+          <a class="navbar-item has-text-weight-bold is-size-5 has-background-light has-text-link-dark"
+            href="/">DASHBORD</a>
+          <a class="navbar-item has-text-weight-medium" href="/preferences">Preferences</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="section">
+    <div class="container">
+      <div class="has-text-centered mb-5 mt-4">
+        <h1 class="title is-size-3 has-text-weight-bold">Today's Forecast</h1>
+        <p id="clock" class="is-size-5 has-text-weight-semibold has-text-link-dark mb-3">
+          <!-- Hora atual será inserida aqui -->
+        </p>
+      </div>
+
+      <div class="columns is-multiline" id="cityCardsContainer">
+        <!-- Cards goes here -->
+      </div>
+    </div>
+  </main>
+
+    <!-- Footer -->
+  <footer class="footer has-background-info	 ">
+    <div class="content has-text-centered">
+      <p> <strong>WeatherWeather- Dashboard</strong> by Gabriela K. </p>
+    </div>
+  </footer>
+
+  
+
+    <script>
+        // generate the cards of the favorite cities
+        document.addEventListener('DOMContentLoaded', () => {
+        const favoriteCities = JSON.parse(localStorage.getItem('favoriteCities') || '[]');
+        const container = document.getElementById('cityCardsContainer');
+
+        if (favoriteCities.length > 0) {
+          favoriteCities.forEach(city => {
+            const cityKey = city.toLowerCase();
+            const daily = weatherData[cityKey + '_daily']?.daily;
+
+            let tempMax = 'N/A';
+            let tempMin = 'N/A';
+
+            if (daily) {
+              tempMax = daily.temperature_2m_max[0];
+              tempMin = daily.temperature_2m_min[0];
+            }
+
+            const cityCard = document.createElement('div');
+            cityCard.classList.add('column', 'is-one-third');
+            cityCard.innerHTML = `
+            <div class="card" data-city="${city}" onclick="window.location.href='/cityfocus/?city=${city}';">
+    <header class="card-header">
+        <p class="card-header-title is-flex is-justify-content-center"">
+          ${city}
+        </p>
+      </header>
+
+      <article class="card-content">
+        <div class="columns is-mobile is-centered has-text-centered">
+          <div class="column">
+            <p class="is-size-4">${tempMin}°C</p>
+            <p class="is-size-7 has-text-grey">Min</p>
+          </div>
+          <div class="column">
+            <p class="is-size-4">${tempMax}°C</p>
+            <p class="is-size-7 has-text-grey">Max</p>
+          </div>
+        </div>
+      </article>
+
+      <footer class="card-footer">
+        <a class="card-footer-item">More Info</a>
+      </footer>
+    </section>
+          `;
+            container.appendChild(cityCard);
+          });
+        } else {
+          container.innerHTML = '<p class="has-text-centered">No favorite cities selected. Go to Preferences to select some cities.</p>';
+        }
+      });
+    </script>
+    <script>
+      function updateClock() {
+        const now = dayjs();
+        const formatted = now.format("dddd, D MMMM YYYY - HH:mm");
+        document.getElementById("clock").textContent = formatted;
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        updateClock(); // mostra imediatamente
+        setInterval(updateClock, 60000); // atualiza a cada 60 segundos
+      });
+    </script>
+
+
+</body>
+
+</html>

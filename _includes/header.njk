@@ -1,0 +1,30 @@
+ <header>
+    <nav class="navbar is-primary has-background-info	" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <img class=logo src="images/logo.png" alt="Logo" style="max-height: 5rem;">
+        </a>
+
+        <!-- Correctly link the navbar-burger to the navbar-menu -->
+        <span class="navbar-burger has-background-black" data-target="navbarMenu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </span>
+      </div>
+
+      <!-- Add the ID 'navbarMenu' to match the data-target -->
+      <div id="navbarMenu" class="navbar-menu">
+        <!-- Centraliza o Dashboard -->
+        <div class="navbar-start is-flex is-justify-content-center" style="flex: 1;">
+          <a class="navbar-item has-text-weight-bold is-size-5" href="/">Dashboard</a>
+        </div>
+
+        <!-- Preferences no canto direito -->
+        <div class="navbar-end">
+          <a class="navbar-item has-text-weight-medium" href="/preferences">Preferences</a>
+        </div>
+
+      </div>
+    </nav>
+  </header>

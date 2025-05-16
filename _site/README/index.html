@@ -1,0 +1,99 @@
+<h1>Whether Weather - Assignment Project</h1>
+<h2>🌦️ About the Project</h2>
+<p>Whether Weather is a simple weather forecast website developed as part of a front-end assignment. The project allows users to:</p>
+<ul>
+<li>View a dashboard with cards for their favorite cities.</li>
+<li>Click on a city to view detailed forecast data (City Focus).</li>
+<li>Select their favorite cities and display preferences (Preferences Page).</li>
+</ul>
+<p>All data is locally sourced from provided JSON files or the included <code>weather_data.js</code> file, as per assignment instructions. No external APIs were used.</p>
+<hr>
+<h2>🧰 Technologies Used</h2>
+<ul>
+<li>HTML5</li>
+<li>CSS3</li>
+<li>JavaScript (Vanilla)</li>
+<li>Bulma CSS Framework</li>
+<li>Eleventy (Static Site Generator)</li>
+</ul>
+<hr>
+<h2>🚀 How to Run the Project Locally</h2>
+<ol>
+<li>
+<p>Clone or download the repository.</p>
+</li>
+<li>
+<p>Make sure you have Eleventy installed (<code>npm install @11ty/eleventy --save-dev</code>)</p>
+</li>
+<li>
+<p>Run the project locally:</p>
+<pre><code>npx eleventy --serve
+</code></pre>
+</li>
+<li>
+<p>Open your browser and go to <code>http://localhost:8080/</code></p>
+</li>
+</ol>
+<p>All pages and data should load properly.</p>
+<hr>
+<h2>📄 Folder Structure</h2>
+<pre><code>project-root/
+├── src/
+│   ├── index.html (Dashboard)
+│   ├── preferences.html
+│   ├── cityfocus.html
+│   ├── assets/
+│   │   ├── images/
+│   │   ├── styles.css
+│   │   ├── forecast/ (JSON files)
+│   │   └── data/
+│   │       └── weather_data.js
+</code></pre>
+<hr>
+<h2>✅ Features Implemented</h2>
+<h3>Dashboard Page:</h3>
+<ul>
+<li>Dynamically lists user-selected favorite cities from localStorage.</li>
+<li>Each city card links to the City Focus page with the appropriate city parameter.</li>
+</ul>
+<h3>Preferences Page:</h3>
+<ul>
+<li>Users can select favorite cities and display preferences.</li>
+<li>Selections are saved to localStorage.</li>
+</ul>
+<h3>City Focus Page:</h3>
+<ul>
+<li>
+<p>Reads city name from URL parameters.</p>
+</li>
+<li>
+<p>Loads data from <code>weather_data.js</code>.</p>
+</li>
+<li>
+<p>Displays:</p>
+<ul>
+<li>Today's weather (description, max temperature, wind speed)</li>
+<li>Current hour forecast (temperature and wind)</li>
+<li>7-day summary (weather description for each day)</li>
+<li>Current time</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>📌 Notes</h2>
+<ul>
+<li>All weather data is sourced from the provided JSON and <code>weather_data.js</code> files.</li>
+<li>City names in filenames are lowercase and joined (e.g., <code>newyork_daily.json</code>).</li>
+<li>The project is designed to work entirely offline (no API dependencies).</li>
+</ul>
+<hr>
+<h2>🙌 Credits</h2>
+<ul>
+<li>Weather data and specifications provided by the course instructor.</li>
+<li>Bulma CSS: <a href="https://bulma.io/">https://bulma.io/</a></li>
+</ul>
+<hr>
+<h2>📅 Last Updated</h2>
+<p>May 2025</p>
+<hr>
+<p>Thank you for reviewing this project! 🚀</p>
