@@ -41,19 +41,19 @@ All pages and data should load properly.
 
 ```
 project-root/
-├── src/
-│   ├── index.html (Dashboard)
-│   ├── preferences.html
-│   ├── cityfocus.html
-│   ├── assets/
-│   │   ├── images/
-│   │   ├── styles.css
-│   │   ├── forecast/ (JSON files)
-│   │   └── data/
-│   │       └── weather_data.js
+│
+├── index.html
+├── preferences.html
+├── cityfocus.html
+│
+├── style.css
+├── js/
+│   └── bulma.js
+├── data/
+│   └── weather_data.js
+├── images/
+│   └── logo.png
 ```
-
----
 
 ## ✅ Features Implemented
 
